@@ -124,3 +124,9 @@ STATIC_URL = '/static/'
 
 # Crispy by default uses bootstrap2, so we specify our bootstrap version here
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Set where django redirects successfully logged in users to when using the built-in login views
+LOGIN_REDIRECT_URL = 'blog-home'
+
+# Set the location of our login page so that django can redirect to it when the @login_required condition is not satisfied
+LOGIN_URL = 'login'

@@ -1,4 +1,4 @@
-from django import forms
+from django import forms # Contains all of django's built in form elements, which dictate form elements work and appear
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 

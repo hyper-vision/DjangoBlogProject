@@ -14,12 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+# Built in views (functions) for authentication Django provides, so we don't have to write our own
+# These built in views include the form element that's passed to the respective template
+from django.contrib.auth import views as auth_views 
 from django.urls import path, include
 from users import views as user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', user_views.register, name = 'register'), # Adding route to register directly
+    path('profile/', user_views.profile, name = 'profile'),
+    # Specify the template location, default looks elsewhere
+    path('login/', auth_views.LoginView.as_view(template_name = 'users/login.html'), name = 'login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name = 'users/logout.html'), name = 'logout'),
     path('', include('blogApp.urls')),
-
 ]
